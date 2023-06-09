@@ -36,8 +36,7 @@ const doctorSchema = new Schema({
     type: Boolean,
     required: true,
   },
-
-  required: true,
 });
 
-export default doctor;
+const Doctor = new mongoose.model(Doctor, doctorSchema);
+export default Doctor;
