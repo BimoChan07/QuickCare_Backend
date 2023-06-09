@@ -1,3 +1,1 @@
-import mongoose, {Schema,Types, model} from "mongoose";
-
-const mongoose = 
+import mongoose from "mongoose";
