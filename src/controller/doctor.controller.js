@@ -1,14 +1,14 @@
-import User from "../models/user.model.js";
-export const createUser = async (req, res) => {
+import Doctor from "../models/doctor.model.js";
+export const createDoctor = async (req, res) => {
   try {
-    const user = new User({
+    const doctor = new Doctor({
       name: req.body.name,
       username: req.body.username,
       password: req.body.password,
       isAdmin: req.body.isAdmin,
     });
-    await user.save();
-    res.send("user saved");
+    await doctor.save();
+    res.send("Doctor Saved");
   } catch (e) {
     console.log(e);
   }
