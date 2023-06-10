@@ -1,10 +1,10 @@
-import Appointment from "../models/appointment.model";
+import Appointment from "../models/appointment.model.js";
 
 export const createAppointment = async (req, res) => {
   try {
     const appointment = new Appointment({
       date: req.body.date,
-      time: req.body.date,
+      time: req.body.time,
     });
     await appointment.save();
     res.send("Appointment booked");
