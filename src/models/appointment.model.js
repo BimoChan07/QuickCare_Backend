@@ -1,11 +1,20 @@
 import mongoose, { Schema } from "mongoose";
 
 const appointmentSchema = new mongoose.Schema({
-  date: {
-    type: String,
+  created_at: {
+    type: Date,
+    default: Date.now,
     required: true,
   },
-  time: {
+  doctor_id: {
+    type: Number,
+    required: true,
+  },
+  user_id: {
+    type: Number,
+    required: true,
+  },
+  status: {
     type: String,
     required: true,
   },

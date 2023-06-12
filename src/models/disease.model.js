@@ -1,6 +1,22 @@
 import mongoose from "mongoose";
-const diseaseSchema = new Schema({
+const diseaseSchema = new mongoose.Schema({
   name: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  symptoms: {
+    type: String,
+    required: true,
+  },
+  diagnosis: {
+    type: String,
+    required: true,
+  },
+  treatment: {
     type: String,
     required: true,
   },
