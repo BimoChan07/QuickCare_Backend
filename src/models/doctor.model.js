@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-const doctorSchema = new Schema({
+const doctorSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,

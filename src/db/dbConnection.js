@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
-import "dotenv/config";
+
 const dbConnection = () => {
+  const URL = `mongodb+srv://bimochanbajimaya:bmocchan07@cluster0.h4jvxi3.mongodb.net/QuickCare
+`;
   try {
     mongoose.connect(process.env.DATABASE);
     console.log("Database Connected");
