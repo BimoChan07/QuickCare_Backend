@@ -1,9 +1,10 @@
 import express from "express";
-import dbConnection from "./src/db/dbConnection.js";
+import dbConnection from "./src/dbConnection.js";
 import user from "./src/routes/user.routes.js";
 import doctor from "./src/routes/doctor.routes.js";
 import appointment from "./src/routes/appointment.routes.js";
 import disease from "./src/routes/disease.routes.js ";
+import report from "./src/routes/report.routes.js";
 
 const app = express();
 const port = 4000;
@@ -11,6 +12,7 @@ app.use("/user", user);
 app.use("/doctor", doctor);
 app.use("/disease", disease);
 app.use("/appointment", appointment);
+app.use("/report", report);
 
 app.use(express.json());
 app.listen(port, () => {
