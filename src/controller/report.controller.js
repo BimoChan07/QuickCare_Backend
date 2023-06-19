@@ -3,9 +3,11 @@ import "dotenv/config.js";
 
 export const createReport = async (req, res) => {
   try {
+    const { user_id, prescription } = req.body;
+
     const report = new Report({
-      user_id: req.body.user_id,
-      prescription: req.body.prescription,
+      user_id,
+      prescription,
     });
 
     await report.save();

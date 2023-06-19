@@ -1,12 +1,14 @@
 import Disease from "../models/disease.model.js";
+
 export const createDisease = async (req, res) => {
   try {
+    const { name, description, symptoms, diagnosis, treatment } = req.body;
     const disease = new Disease({
-      name: req.body.name,
-      description: req.body.description,
-      symptoms: req.body.symptoms,
-      diagnosis: req.body.diagnosis,
-      treatment: req.body.treatment,
+      name,
+      description,
+      symptoms,
+      diagnosis,
+      treatment,
     });
     await disease.save();
     res.send("Disease Saved");
