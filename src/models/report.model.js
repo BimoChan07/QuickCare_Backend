@@ -19,10 +19,12 @@ const reportSchema = new mongoose.Schema({
   follow_up: {
     type: Date,
     required: true,
+    min: Date.now,
   },
   prescription: {
     type: String,
     required: true,
+    maxlength: 500,
   },
 });
 
