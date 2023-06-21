@@ -6,16 +6,21 @@ const userSchema = new mongoose.Schema({
     type: String,
   },
   username: {
-    required: true,
     type: String,
+    required: true,
+    minlength: 4, // Example validation: Minimum length of 4 characters for the username
+    maxlength: 50, // Example validation: Maximum length of 50 characters for the username
   },
   password: {
-    required: true,
     type: String,
+    required: true,
+    minlength: 8,
+    maxlength: 100,
   },
   contactNo: {
-    required: true,
     type: String,
+    required: true,
+    match: /^\d{10}$/,
   },
   dob: {
     required: true,
