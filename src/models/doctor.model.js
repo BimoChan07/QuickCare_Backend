@@ -7,22 +7,30 @@ const doctorSchema = new mongoose.Schema({
   age: {
     type: Number,
     required: true,
+    min: 18,
+    max: 120,
   },
   gender: {
     type: String,
     required: true,
+    enum: ["Male", "Female", "Other"],
   },
   username: {
     type: String,
     required: true,
+    unique: true,
+    lowercase: true,
   },
   password: {
     type: String,
     required: true,
+    minlength: 8,
+    maxlength: 100,
   },
   licenseNo: {
     type: String,
     required: true,
+    unique: true,
   },
   department: {
     type: String,
