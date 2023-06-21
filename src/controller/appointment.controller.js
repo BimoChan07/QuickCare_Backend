@@ -10,8 +10,11 @@ export const createAppointment = async (req, res) => {
       status,
     });
     await appointment.save();
-    res.send("Appointment booked");
-  } catch (e) {
-    console.log(e);
+    res.status(201).json({ success: true, message: "Appointment booked" });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ success: false, message: "Appointment creation failed" });
   }
 };
