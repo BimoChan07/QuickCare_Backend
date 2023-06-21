@@ -2,7 +2,17 @@ import Doctor from "../models/doctor.model.js";
 
 export const createDoctor = async (req, res) => {
   try {
-    const { name, username, password, isAdmin } = req.body;
+    const {
+      name,
+      age,
+      gender,
+      username,
+      password,
+      licenseNo,
+      department,
+      licensePhtoto,
+      isAdmin,
+    } = req.body;
     // Validate request
     if (!username || !password) {
       return res.status(400).send("Username and password required");
@@ -10,8 +20,13 @@ export const createDoctor = async (req, res) => {
 
     const doctor = new Doctor({
       name,
+      age,
+      gender,
       username,
       password,
+      licenseNo,
+      department,
+      licensePhtoto,
       isAdmin,
     });
 

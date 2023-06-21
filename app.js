@@ -21,7 +21,8 @@ app.use("/report", report);
 app.use(express.json());
 
 app.listen(port, () => {
-  console.log(`server is listening at ${port}`);
+  console.log(`The server is listening at ${port}`);
+  console.log(`QuickCare build in process...`);
 });
 
 dbConnection();
