@@ -54,6 +54,6 @@ const userLogin = async (req, res) => {
       username,
     });
   } catch (e) {
-    res.status(403).json(e);
+    res.status(403).json("Invalid request" + e);
   }
 };
