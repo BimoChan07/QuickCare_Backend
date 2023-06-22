@@ -13,6 +13,6 @@ export const createDisease = async (req, res) => {
     await disease.save();
     res.send("Disease Saved");
   } catch (e) {
-    console.log(e);
+    console.log("Error saving disease: " + e);
   }
 };
