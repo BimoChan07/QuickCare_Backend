@@ -15,8 +15,8 @@ export const createReport = async (req, res) => {
     });
 
     await report.save();
-    res.send("Report Saved");
+    res.send("Report Saved Successfully.");
   } catch (e) {
-    console.log(e);
+    console.log("Error while saving report: " + e);
   }
 };
