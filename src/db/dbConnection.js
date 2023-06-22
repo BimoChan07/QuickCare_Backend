@@ -5,9 +5,9 @@ const dbConnection = () => {
 `;
   try {
     mongoose.connect(process.env.DATABASE);
-    console.log("Database Connected");
+    console.log("Database Connected Successfully");
   } catch (e) {
-    console.log(e);
+    console.log("Error connecting to database: " + e);
   }
 };
 
