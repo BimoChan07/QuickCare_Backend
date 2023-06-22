@@ -35,7 +35,7 @@ const userLogin = async (req, res) => {
     }
     if (!password) {
       return res.status(400).json({ failure: "Password is required" });
-
+    }
     // if user exists, compare password
     const isMatch = await user.comparePassword(password, user.password);
 
