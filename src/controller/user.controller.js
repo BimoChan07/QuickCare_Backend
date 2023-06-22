@@ -41,6 +41,8 @@ const userLogin = async (req, res) => {
 
     if (!isMatch) {
       return res.status(400).json({ failure: "Incorrect password" });
+    } else {
+      res.send("Login successful");
     }
 
     // create JWT token
