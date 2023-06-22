@@ -22,3 +22,34 @@ export const createUser = async (req, res) => {
     console.log(e);
   }
 };
+
+// user login controller
+const userLogin = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = await User.findone({ username });
+
+    // if user does not exist
+    if (!user) {
+      return res.status(400).json({ failure: "User does not exist" });
+    }
+
+    // if user exists, compare password
+    const isMatch = await user.comparePassword(password, user.password);
+
+    if (!isMatch) {
+      return res.status(400).json({ failure: "Incorrect password" });
+    }
+
+    // create JWT token
+
+    const token = user.generateToken();
+
+    res.status(200).json({
+      token,
+      username,
+    });
+  } catch (e) {
+    res.status(403).json(e);
+  }
+};
