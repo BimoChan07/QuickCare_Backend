@@ -57,3 +57,30 @@ const userLogin = async (req, res) => {
     res.status(403).json("Invalid request" + e);
   }
 };
+
+export const updateUser = async (req, res) => {
+  try {
+    const { fullname, username, password, contactNo, address } = req.body;
+
+    if (!username || !password) {
+      return res.status(400).send("Username and password required");
+    }
+    const user = new User({
+      fullname,
+      username,
+      password,
+      contactNo,
+      address,
+    });
+    await user.findByIdAndUpdate(req.params.id, {
+      fullname,
+      username,
+      password,
+      contactNo,
+      address,
+    });
+    res.send("user updated");
+  } catch (e) {
+    console.log(e);
+  }
+};
