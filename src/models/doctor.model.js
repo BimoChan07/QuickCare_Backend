@@ -1,3 +1,4 @@
+import { number } from "joi";
 import mongoose from "mongoose";
 const doctorSchema = new mongoose.Schema({
   fullname: {
@@ -28,7 +29,7 @@ const doctorSchema = new mongoose.Schema({
     maxlength: 100,
   },
   licenseNo: {
-    type: String,
+    type: Number,
     required: true,
     unique: true,
   },
