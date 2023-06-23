@@ -10,8 +10,8 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    minlength: 4, // Example validation: Minimum length of 4 characters for the username
-    maxlength: 50, // Example validation: Maximum length of 50 characters for the username
+    minlength: 4,
+    maxlength: 50,
   },
   password: {
     type: String,
@@ -32,7 +32,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
-
   isAdmin: {
     type: Boolean,
     required: true,
