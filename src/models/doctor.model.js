@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 const doctorSchema = new mongoose.Schema({
-  name: {
+  fullname: {
     type: String,
     required: true,
   },

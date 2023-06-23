@@ -3,7 +3,7 @@ import Doctor from "../models/doctor.model.js";
 export const createDoctor = async (req, res) => {
   try {
     const {
-      name,
+      fullname,
       age,
       gender,
       username,
@@ -19,7 +19,7 @@ export const createDoctor = async (req, res) => {
     }
 
     const doctor = new Doctor({
-      name,
+      fullname,
       age,
       gender,
       username,
