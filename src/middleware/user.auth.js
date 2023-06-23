@@ -1,7 +1,6 @@
-import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
-const isLogin = (Request, Response, NextFunction) => {
+const isLogin = (req, res, next) => {
   try {
     const token = extractTokenFromHeader(req);
     if (!token) {
