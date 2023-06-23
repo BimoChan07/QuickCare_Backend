@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 const doctorSchema = new mongoose.Schema({
   fullname: {
     type: String,
