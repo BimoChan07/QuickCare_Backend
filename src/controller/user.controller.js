@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+
 export const createUser = async (req, res) => {
   try {
     const { fullname, username, password, contactNo, dob, address, isAdmin } =
@@ -24,7 +25,7 @@ export const createUser = async (req, res) => {
 };
 
 // user login controller
-const userLogin = async (req, res) => {
+export const userLogin = async (req, res) => {
   try {
     const { username, password } = req.body;
     const user = await User.findone({ username });
@@ -72,12 +73,10 @@ export const updateUser = async (req, res) => {
       contactNo,
       address,
     });
-    await user.findByIdAndUpdate(req.params.id, {
+    await User.findByIdAndUpdate(req.params.id, {
       fullname,
       username,
       password,
-      contactNo,
-      address,
     });
     res.send("user updated");
   } catch (e) {
