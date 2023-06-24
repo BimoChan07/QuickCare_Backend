@@ -95,7 +95,7 @@ export const updateUser = async (req, res) => {
       username,
       password,
     });
-    res.send("user updated");
+    res.send("User updated");
   } catch (e) {
     console.log(e);
   }
