@@ -38,7 +38,7 @@ const doctorSchema = new mongoose.Schema({
   },
   licensePhoto: {
     type: String,
-    required: true,
+    required: false,
   },
   isAdmin: {
     type: Boolean,
