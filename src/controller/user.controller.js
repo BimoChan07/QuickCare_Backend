@@ -59,6 +59,23 @@ export const userLogin = async (req, res) => {
   }
 };
 
+// Display User
+export const displayDoctor = async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    const user = await User.findById(userId);
+    if (user) {
+      res.status(200).json(user);
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (e) {
+    res.status(500).json({ message: "Error retrieving user information", e });
+  }
+};
+
+// Update User
 export const updateUser = async (req, res) => {
   try {
     const { fullname, username, password, contactNo, address } = req.body;
@@ -81,5 +98,20 @@ export const updateUser = async (req, res) => {
     res.send("user updated");
   } catch (e) {
     console.log(e);
+  }
+};
+
+// Delete User
+export const deleteUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await User.findByIdAndDelete(userId);
+    if (user) {
+      res.status(200).json({ message: "User deleted" });
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (e) {
+    res.status(500).json({ message: "Error deleting user", e });
   }
 };
