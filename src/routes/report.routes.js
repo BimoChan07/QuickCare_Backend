@@ -9,8 +9,8 @@ import {
 const router = express.Router();
 router.use(express.json());
 router.post("/createReport", createReport);
-router.post("/displayReport", displayReport);
-router.post("/updateReport", updateReport);
-router.post("/deleteReport", deleteReport);
+router.post("/displayReport/:id", displayReport);
+router.post("/updateReport/:id", updateReport);
+router.post("/deleteReport/:id", deleteReport);
 
 export default router;
