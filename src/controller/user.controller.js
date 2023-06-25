@@ -60,7 +60,7 @@ export const userLogin = async (req, res) => {
 };
 
 // Display User
-export const displayDoctor = async (req, res) => {
+export const displayUser = async (req, res) => {
   try {
     const userId = req.params.id;
 
