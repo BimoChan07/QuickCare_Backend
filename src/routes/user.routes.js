@@ -1,8 +1,8 @@
 import express from "express";
 import {
   createUser,
-  updateUser,
   displayUser,
+  updateUser,
   deleteUser,
 } from "../controller/user.controller.js";
 
