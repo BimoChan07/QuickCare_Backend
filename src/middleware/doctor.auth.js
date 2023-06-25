@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-export const idLogin = (req, res, next) => {
+export const isLogin = (req, res, next) => {
   try {
     const token = extractTokenFromHeader(req);
     if (!token) {
@@ -15,13 +15,13 @@ export const idLogin = (req, res, next) => {
   } catch (err) {
     res.status(401).json({
       ERR: "Something terrible happened during token verification!",
-      message: err,
+      message: err.message,
     });
   }
 };
 
 // Function that will extract token from header
-const extractTokenFromHeader = (_AuthRequest) => {
+const extractTokenFromHeader = (request) => {
   const [type, token] = request.headers.authorization?.split(" ") ?? [];
   return type === "Bearer" ? token : undefined;
 };
