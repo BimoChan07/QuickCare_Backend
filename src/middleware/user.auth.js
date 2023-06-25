@@ -15,7 +15,7 @@ export const isLogin = (req, res, next) => {
   } catch (err) {
     res.status(401).json({
       ERR: "Something terrible happened during token verification!",
-      message: err,
+      message: err.message,
     });
   }
 };
