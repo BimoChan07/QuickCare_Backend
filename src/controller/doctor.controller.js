@@ -13,6 +13,7 @@ export const createDoctor = async (req, res) => {
       licensePhtoto,
       isAdmin,
     } = req.body;
+
     // Validate request
     if (!username || !password) {
       return res.status(400).send("Username and password required");
