@@ -21,7 +21,7 @@ export const isLogin = (req, res, next) => {
 };
 
 // Function that will extract token from header
-const extractTokenFromHeader = (_AuthRequest) => {
+const extractTokenFromHeader = (request) => {
   const [type, token] = request.headers.authorization?.split(" ") ?? [];
   return type === "Bearer" ? token : undefined;
 };
