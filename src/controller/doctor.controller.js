@@ -63,9 +63,7 @@ export const displayDoctor = async (req, res) => {
     const doctor = await Doctor.findById(doctorId);
 
     if (doctor) {
-      res
-        .status(200)
-        .json({ message: "Retrieving data from database", doctor });
+      res.status(200).json({ message: "Retrieving data from database" });
       res.status(200).json(doctor);
     } else {
       res.status(404).json({ message: "Doctor not found" });
