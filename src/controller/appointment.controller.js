@@ -26,6 +26,9 @@ export const displayAppointment = async (req, res) => {
 
     const appointment = await Appointment.findById(appointmentId);
     if (appointment) {
+      res
+        .status(200)
+        .json({ message: "Retrieving data from database", appointment });
       res.status(200).json(appointment);
     } else {
       res.status(200).json({ message: "Appointment deleted" });
