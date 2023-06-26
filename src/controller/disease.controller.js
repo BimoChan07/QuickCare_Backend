@@ -23,9 +23,7 @@ export const displayDisease = async (req, res) => {
     const diseaseId = req.params.id;
     const disease = await Disease.findById(diseaseId);
     if (disease) {
-      res
-        .status(200)
-        .json({ message: "Retrieving data from database", disease });
+      res.status(200).json({ message: "Retrieving data from database" });
       res.status(200).json({ message: "", disease });
     } else {
       res.status(404).json({ message: "Disease not found" });
