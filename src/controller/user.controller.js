@@ -66,6 +66,7 @@ export const displayUser = async (req, res) => {
 
     const user = await User.findById(userId);
     if (user) {
+      res.status(200).json({ message: "Retrieving data from database" });
       res.status(200).json(user);
     } else {
       res.status(404).json({ message: "User not found" });
