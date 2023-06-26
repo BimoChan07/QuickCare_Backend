@@ -27,6 +27,7 @@ export const displayReport = async (req, res) => {
     const reportId = req.params.id;
     const report = await Report.findById(reportId);
     if (report) {
+      res.status(200).json({ message: "Retrieving data from database" });
       res.status(200).json(report);
     } else {
       res.status(404).json({ message: "Report not found" });
