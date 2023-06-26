@@ -50,13 +50,6 @@ export const doctorLogin = async (req, res) => {
     } else {
       return res.status(200).json({ success: "Login successful" });
     }
-    /* const isMatch = await doctor.comparePassword(password, doctor.password);
-
-    if (!isMatch) {
-      return res.status(400).json({ failure: "Incorrect password" });
-    } else {
-      res.send("Login successful");
-    } */
   } catch (e) {
     res.status(403).json("Invalid request: " + e);
   }
@@ -70,6 +63,9 @@ export const displayDoctor = async (req, res) => {
     const doctor = await Doctor.findById(doctorId);
 
     if (doctor) {
+      res
+        .status(200)
+        .json({ message: "Retrieving data from database", doctor });
       res.status(200).json(doctor);
     } else {
       res.status(404).json({ message: "Doctor not found" });
