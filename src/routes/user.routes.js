@@ -4,10 +4,12 @@ import {
   displayUser,
   updateUser,
   deleteUser,
+  userLogin
 } from "../controller/user.controller.js";
 
 const router = express.Router();
 router.use(express.json());
+router.post("login", userLogin)
 router.post("/createUser", createUser);
 router.post("/displayUser/:id", displayUser);
 router.post("/updateUser/:id", updateUser);

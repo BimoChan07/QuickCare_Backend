@@ -6,6 +6,7 @@ import doctor from "./src/routes/doctor.routes.js";
 import appointment from "./src/routes/appointment.routes.js";
 import disease from "./src/routes/disease.routes.js ";
 import report from "./src/routes/report.routes.js";
+import res from "express/lib/response.js";
 
 const app = express();
 const port = 4000;
@@ -19,7 +20,8 @@ app.use("/appointment", appointment);
 app.use("/report", report);
 
 app.use(express.json());
-
+app.use('/',(req, res ) => {
+  res.send("Welcome to QuickCare");})
 app.listen(port, () => {
   console.log(`The server is listening at ${port}`);
   console.log(`QuickCare build in process...`);
