@@ -7,12 +7,12 @@ const userSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
-  username: {
+  email: {
     type: String,
     required: true,
-    minlength: 4,
-    maxlength: 50,
-    lowercase: true,
+    // minlength: 4,
+    // maxlength: 50,
+    // lowercase: true,
   },
   password: {
     type: String,
@@ -22,20 +22,20 @@ const userSchema = new mongoose.Schema({
   },
   contactNo: {
     type: String,
-    required: true,
+    // required: true,
     match: /^\d{10}$/,
   },
   dob: {
-    required: true,
+    // required: true,
     type: Date,
   },
   address: {
-    required: true,
+    // required: true,
     type: String,
   },
   isAdmin: {
     type: Boolean,
-    required: true,
+    // required: true,
   },
 });
 
@@ -56,7 +56,7 @@ userSchema.methods.generateToken = function () {
   return jwt.sign(
     {
       userId: this._id,
-      username: this.username,
+      fullname: this.fullname,
     },
     process.env.JWT_SECRET,
     {

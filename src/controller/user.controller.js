@@ -2,24 +2,26 @@ import User from "../models/user.model.js";
 
 export const createUser = async (req, res) => {
   try {
-    const { fullname, username, password, contactNo, dob, address, isAdmin } =
+    const { fullname, username,email,  password, contactNo, dob, address, isAdmin } =
       req.body;
 
-    if (!username || !password) {
+    if (!email || !password) {
       return res.status(400).send("Username and password required");
     }
     const user = new User({
       fullname,
-      username,
+      email, 
       password,
-      contactNo,
-      dob,
-      address,
-      isAdmin,
+      // username,
+      // contactNo,
+      // dob,
+      // address,
+      // isAdmin,
     });
     await user.save();
     res.send("user saved");
   } catch (e) {
+    res.send(e)
     console.log(e);
   }
 };
@@ -27,8 +29,8 @@ export const createUser = async (req, res) => {
 // user login controller
 export const userLogin = async (req, res) => {
   try {
-    const { username, password } = req.body;
-    const user = await User.findone({ username });
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
 
     // if user does not exist
     if (!user) {
@@ -52,7 +54,7 @@ export const userLogin = async (req, res) => {
 
     res.status(200).json({
       token,
-      username,
+      email: user.email,  
     });
   } catch (e) {
     res.status(403).json("Invalid request" + e);

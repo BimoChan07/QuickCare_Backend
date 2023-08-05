@@ -7,12 +7,12 @@ import appointment from "./src/routes/appointment.routes.js";
 import disease from "./src/routes/disease.routes.js ";
 import report from "./src/routes/report.routes.js";
 import res from "express/lib/response.js";
-
+import cors from "cors";
 const app = express();
 const port = 4000;
 
 dotenv.config();
-
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use("/user", user);
 app.use("/doctor", doctor);
 app.use("/disease", disease);
