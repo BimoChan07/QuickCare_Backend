@@ -1,3 +1,4 @@
+import { Timestamp } from "mongodb";
 import mongoose from "mongoose";
 
 const appointmentSchema = new mongoose.Schema({
@@ -9,7 +10,11 @@ const appointmentSchema = new mongoose.Schema({
   doctor_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Doctor",
-    requires: true,
+    required: true,
+  },
+  bookedTime: {
+    type: Timestamp,
+    required: true,
   },
   user_id: {
     type: mongoose.Schema.Types.ObjectId,

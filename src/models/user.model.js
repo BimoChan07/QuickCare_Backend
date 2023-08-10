@@ -7,12 +7,15 @@ const userSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
+  username: {
+    required: true,
+    type: String,
+  },
   email: {
     type: String,
     required: true,
-    // minlength: 4,
-    // maxlength: 50,
-    // lowercase: true,
+    minlength: 4,
+    maxlength: 50,
   },
   password: {
     type: String,
@@ -22,7 +25,7 @@ const userSchema = new mongoose.Schema({
   },
   contactNo: {
     type: String,
-    // required: true,
+    required: true,
     match: /^\d{10}$/,
   },
   dob: {
@@ -30,7 +33,7 @@ const userSchema = new mongoose.Schema({
     type: Date,
   },
   address: {
-    // required: true,
+    required: true,
     type: String,
   },
   isAdmin: {
